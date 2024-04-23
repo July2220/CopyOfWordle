@@ -14,7 +14,7 @@ struct LetterButtonView: View {
     var body: some View {
         Button {
             //addWord to button
-            dm.addLetterToWord(letter)
+            dm.addLetterToCurrentWord(letter)
         } label: {
             Text(letter)
                 .font(.system(size: 20))
