@@ -19,6 +19,7 @@
 		1934A75C2BD6B15100442E4C /* LetterButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1934A75B2BD6B15100442E4C /* LetterButtonView.swift */; };
 		1934A75E2BD6B43600442E4C /* keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1934A75D2BD6B43600442E4C /* keyboard.swift */; };
 		199E844D2BD7B2A400D6535C /* Shake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199E844C2BD7B2A400D6535C /* Shake.swift */; };
+		19B5C7832BD8E98D002D8F53 /* FlipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B5C7822BD8E98D002D8F53 /* FlipView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		1934A75B2BD6B15100442E4C /* LetterButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterButtonView.swift; sourceTree = "<group>"; };
 		1934A75D2BD6B43600442E4C /* keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keyboard.swift; sourceTree = "<group>"; };
 		199E844C2BD7B2A400D6535C /* Shake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shake.swift; sourceTree = "<group>"; };
+		19B5C7822BD8E98D002D8F53 /* FlipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				199E844C2BD7B2A400D6535C /* Shake.swift */,
+				19B5C7822BD8E98D002D8F53 /* FlipView.swift */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 				199E844D2BD7B2A400D6535C /* Shake.swift in Sources */,
 				1934A75E2BD6B43600442E4C /* keyboard.swift in Sources */,
 				1934A7402BD63FCB00442E4C /* GameView.swift in Sources */,
+				19B5C7832BD8E98D002D8F53 /* FlipView.swift in Sources */,
 				1934A75A2BD6564E00442E4C /* Global.swift in Sources */,
 				1934A73E2BD63FCB00442E4C /* CopyOfWordleApp.swift in Sources */,
 				1934A7522BD6495D00442E4C /* Guess.swift in Sources */,
