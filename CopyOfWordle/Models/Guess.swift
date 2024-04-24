@@ -12,7 +12,7 @@ struct Guess {
     var word = "     "
     
     //Color(.systemBackground) 根据用户界面的亮度模式（Light Mode 或 Dark Mode）自动选择合适的背景颜色。
-    var bgColors = [Color](repeating: Color(.systemBackground), count: 5)
+    var bgColors = [Color](repeating: Color(.wrong), count: 5)
     
     var cardFlipped = [Bool](repeating: false, count: 5)
     
