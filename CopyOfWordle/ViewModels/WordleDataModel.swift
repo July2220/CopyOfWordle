@@ -10,6 +10,8 @@ import SwiftUI
 class WordleDataModel: ObservableObject {
     @Published var guesses: [Guess] = []
     @Published var incorrectAttempts = [Int](repeating: 0, count: 6)
+    @Published var toastText: String?
+    @Published var showStats = false
     
     var keyColors = [String: Color]()
     var matchedLetters = [String]()
@@ -20,6 +22,9 @@ class WordleDataModel: ObservableObject {
     var tryIndex = 0
     var inPlay = false
     var gameOver = false
+    var toastWords = ["Genius","Maginificent","Impressive","Splendid","Great","Phew"]
+    var currentStat: Statistic
+    
     
     var gameStarted: Bool {
         !currentWord.isEmpty || tryIndex > 0
@@ -30,6 +35,7 @@ class WordleDataModel: ObservableObject {
     }
     
     init() {
+        currentStat = Statistic.loadStat()
         newGame()
     }
     
@@ -69,6 +75,8 @@ class WordleDataModel: ObservableObject {
             gameOver = true
             print("You win")
             setCurrentGuessColors()
+            currentStat.update(win: true, index: tryIndex)
+            showToast(with: toastWords[tryIndex])
             inPlay = false
         } else {
             if verifyWord() {
@@ -77,14 +85,17 @@ class WordleDataModel: ObservableObject {
                 tryIndex += 1
                 currentWord = ""
                 if tryIndex == 6 {
+                    currentStat.update(win: false)
                     gameOver = true
                     inPlay = false
+                    showToast(with: selectedWord)
                     print("You lose")
                 }
             } else {
                 withAnimation {
                     self.incorrectAttempts[tryIndex] += 1
                 }
+                showToast(with: "Not in the word list")
                 incorrectAttempts[tryIndex] = 0
             }
         }
@@ -159,6 +170,20 @@ class WordleDataModel: ObservableObject {
         for col in 0...4 {
             DispatchQueue.main.asyncAfter(deadline: .now() + Double(col) * 0.2) {
                 self.guesses[row].cardFlipped[col].toggle()
+            }
+        }
+    }
+    
+    func showToast(with text: String?) {
+        withAnimation {
+            toastText = text
+        }
+        withAnimation(Animation.linear(duration: 0.2).delay(3)) {
+            toastText = nil
+            if gameOver {
+                withAnimation(Animation.linear(duration: 0.2).delay(3)) {
+                    showStats.toggle()
+                }
             }
         }
     }
