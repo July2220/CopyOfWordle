@@ -85,14 +85,23 @@ struct StatisticView: View {
                 }
                 Spacer()
                 
-                HStack {
-                    VStack {
-                        Text("Next Wordle".uppercased())
-                        Text("08:39:37")
+                if dm.gameOver {
+                    HStack {
+                        Spacer()
+                        //share button
+                        Button {
+                            dm.shareResult()
+                        } label: {
+                            HStack {
+                                Image(systemName: "square.and.arrow.up")
+                                Text("Share")
+                            }
+                            .foregroundColor(.white)
+                            .padding(8)
+                            .background(Color.correct)
+                        }
                     }
-                    Spacer()
-                    //share button
-                    Text("Share")
+                    .padding(.vertical, 8)
                 }
             }
             .padding(.horizontal, 40)

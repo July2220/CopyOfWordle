@@ -9,6 +9,8 @@ import SwiftUI
 
 struct GameView: View {
     @EnvironmentObject var dm: WordleDataModel
+    @State private var showSetting = false
+
     
     var body: some View {
         ZStack {
@@ -29,6 +31,7 @@ struct GameView: View {
                         .padding(.top)
                     Spacer()
                 }
+                .disabled(dm.showStats)
                 .overlay(alignment: .top) {
                     if let toastText = dm.toastText {
                         ToastView(toastText: toastText)
@@ -69,12 +72,15 @@ struct GameView: View {
                                 Image(systemName: "chart.bar")
                             }
                             Button {
-                                
+                                showSetting.toggle()
                             } label: {
                                 Image(systemName: "gearshape.fill")
                             }
                         }
                     }
+                }
+                .sheet(isPresented: $showSetting) {
+                    SettingsView()
                 }
             }
             if dm.showStats {
